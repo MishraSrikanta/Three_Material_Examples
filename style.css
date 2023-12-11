@@ -96,9 +96,10 @@ html {
   padding: 5pxpx;
   right: 20px;
   margin: 30px 30px 30px 30px;
-  background-color: rgb(204, 106, 106);
+  background-color: rgb(74, 67, 67);
   border-radius: 20px;
-  box-shadow: 0 4px 8px 0 rgba(250, 249, 249, 0.2);
+  /* box-shadow: 0 4px 8px 0 rgba(239, 237, 237, 0.2); */
+  box-shadow: 10px 10px wheat;
 }
 
 @media (max-width: 800px) {
@@ -116,10 +117,11 @@ html {
 img {
   /* display: block; */
   display: flex;
-  width: 95%;
-  padding: 5px;
-  top: 5px;
-  /* height: 10rem; */
+  width: 94%;
+  /* padding: 20px; */
+  padding-top: 8px;
+  top: 8px;
+  /* height: -15rem; */
   margin: auto;
   object-fit: cover;
   border-radius: 20px;
@@ -127,25 +129,56 @@ img {
 
 .Project-heading {
   position: relative;
-  font-size: 16px;
+  display: inline;
+  font-size: 20px;
+  top: 5px;
+  padding: 0px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 700;
-  text-shadow:0.2px 0.2px #000;
-  text-overflow: initial;
-  text-decoration-style: solid;
-  text-transform: uppercase;
-  color: rgb(247, 247, 247);
-  left: 5px;
+  /* font-weight: 100; */
+  font-weight: bold;
+  color: white;
+  /* text-shadow: 0.5px 0.5px #e01616; */
+  /* text-overflow: initial; */
+  /* text-decoration-style: solid; */
+  /* text-transform: uppercase; */
+  /* color: rgb(221, 212, 212); */
+  left: 10px;
 }
 
 .Project-details {
-  position: relative;
-  left: 5px;
+  position: absolute;
+  left: 10px;
   font-size: 14px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-shadow: #000;
-  text-overflow: initial;
+  text-overflow: ellipsis;
 }
+
+.gitHub{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 100px;
+  display: inline-block;
+  opacity: 0.75;
+  width: 50px;
+  height: 50px;
+  cursor:pointer;
+  background-color: rgb(1, 1, 1);
+}
+
+.gitImage{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  object-fit: cover;
+  top: -2px;
+}
+
+.gitHub:hover {
+  opacity: 1;
+}
+
 
 .h2Line {
   font-size: 30px;
