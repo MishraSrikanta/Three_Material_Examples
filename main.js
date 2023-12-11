@@ -1,9 +1,9 @@
 import "./style.css";
-import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { GLTFLoader } from "three/examples/jsm//loaders/GLTFLoader";
+import { particlesCursor } from 'threejs-toys'
+import VanillaTilt from 'vanilla-tilt';
 
-const scene = new THREE.Scene();
+//#region All 3d codes
+// const scene = new THREE.Scene();
 // const camera = new THREE.OrthographicCamera(
 //   (window.innerWidth * 50) / -2,
 //   (window.innerWidth * 50) / 2,
@@ -14,18 +14,18 @@ const scene = new THREE.Scene();
 // );
 // scene.add(camera);
 
-const camera = new THREE.PerspectiveCamera(
-  50,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  100000
-);
-scene.add(camera);
-// scene.backgroundBlurriness = 0.5;
-const renderer = new THREE.WebGLRenderer();
-renderer.shadowMap.enabled = true;
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+// const camera = new THREE.PerspectiveCamera(
+//   50,
+//   window.innerWidth / window.innerHeight,
+//   0.1,
+//   100000
+// );
+// scene.add(camera);
+// // scene.backgroundBlurriness = 0.5;
+// const renderer = new THREE.WebGLRenderer();
+// renderer.shadowMap.enabled = true;
+// renderer.setSize(window.innerWidth, window.innerHeight);
+// document.body.appendChild(renderer.domElement);
 
 //#region
 // const geometry = new THREE.BoxGeometry(5, 5, 5);
@@ -219,70 +219,70 @@ document.body.appendChild(renderer.domElement);
 // scene.add(animation);
 //#endregion
 
-const r = "Images/";
-const urls3 = [
-  r + "diamond3.jpg",
-  r + "diamond3.jpg",
-  r + "diamond3.jpg",
-  r + "diamond3.jpg",
-  r + "diamond3.jpg",
-  r + "diamond3.jpg",
-];
+// const r = "Images/";
+// const urls3 = [
+//   r + "diamond3.jpg",
+//   r + "diamond3.jpg",
+//   r + "diamond3.jpg",
+//   r + "diamond3.jpg",
+//   r + "diamond3.jpg",
+//   r + "diamond3.jpg",
+// ];
 
-const urls = [
-  r + "posx.jpg",
-  r + "negx.jpg",
-  r + "posy.jpg",
-  r + "negy.jpg",
-  r + "posz.jpg",
-  r + "negz.jpg",
-];
+// const urls = [
+//   r + "posx.jpg",
+//   r + "negx.jpg",
+//   r + "posy.jpg",
+//   r + "negy.jpg",
+//   r + "posz.jpg",
+//   r + "negz.jpg",
+// ];
 
-const urls2 = [
-  r + "bg2.jpg",
-  r + "bg2.jpg",
-  r + "bg2.jpg",
-  r + "bg2.jpg",
-  r + "bg2.jpg",
-  r + "bg2.jpg",
-];
+// const urls2 = [
+//   r + "bg2.jpg",
+//   r + "bg2.jpg",
+//   r + "bg2.jpg",
+//   r + "bg2.jpg",
+//   r + "bg2.jpg",
+//   r + "bg2.jpg",
+// ];
 
-const urls4 = [
-  "metal.jpg",
-  "metal.jpg",
-  "metal.jpg",
-  "metal.jpg",
-  "metal.jpg",
-  "metal.jpg",
-];
+// const urls4 = [
+//   "metal.jpg",
+//   "metal.jpg",
+//   "metal.jpg",
+//   "metal.jpg",
+//   "metal.jpg",
+//   "metal.jpg",
+// ];
 
-const showRoomUrl = [
-  r + "new_park_nx.jpg",
-  r + "new_park_ny.jpg",
-  r + "new_park_nz.jpg",
-  r + "new_park_px.jpg",
-  r + "new_park_py.jpg",
-  r + "new_park_pz.jpg",
-];
+// const showRoomUrl = [
+//   r + "new_park_nx.jpg",
+//   r + "new_park_ny.jpg",
+//   r + "new_park_nz.jpg",
+//   r + "new_park_px.jpg",
+//   r + "new_park_py.jpg",
+//   r + "new_park_pz.jpg",
+// ];
 
-const cloud = [
-  "cloud.jpg",
-  "cloud.jpg",
-  "cloud.jpg",
-  "cloud.jpg",
-  "cloud.jpg",
-  "cloud.jpg",
-];
+// const cloud = [
+//   "cloud.jpg",
+//   "cloud.jpg",
+//   "cloud.jpg",
+//   "cloud.jpg",
+//   "cloud.jpg",
+//   "cloud.jpg",
+// ];
 
-const path = "Images/textures/cube/Park2/";
-const park = [
-  path + "posx.jpg",
-  path + "negx.jpg",
-  path + "posy.jpg",
-  path + "negy.jpg",
-  path + "posz.jpg",
-  path + "negz.jpg",
-];
+// const path = "Images/textures/cube/Park2/";
+// const park = [
+//   path + "posx.jpg",
+//   path + "negx.jpg",
+//   path + "posy.jpg",
+//   path + "negy.jpg",
+//   path + "posz.jpg",
+//   path + "negz.jpg",
+// ];
 
 //#region  Old codes
 
@@ -315,248 +315,251 @@ const park = [
 //#endregion
 
 // scene.add(cube);
-window.addEventListener("keyup", (event) => {
-  if (event.key === "D" || event.key === "d") {
-    const diaMaterial = new THREE.MeshPhongMaterial({
-      specular: 0xb9f2ff,
-      color: 0xffffff,
-      shininess: 1,
-      envMap: textureCube,
-      envMapIntensity: 1,
-      reflectivity: 1.0,
-      refractionRatio: 1,
-      // flatShading: true,
-    });
-    cube.material = diaMaterial;
-  }
-});
+// window.addEventListener("keyup", (event) => {
+//   if (event.key === "D" || event.key === "d") {
+//     const diaMaterial = new THREE.MeshPhongMaterial({
+//       specular: 0xb9f2ff,
+//       color: 0xffffff,
+//       shininess: 1,
+//       envMap: textureCube,
+//       envMapIntensity: 1,
+//       reflectivity: 1.0,
+//       refractionRatio: 1,
+//       // flatShading: true,
+//     });
+//     cube.material = diaMaterial;
+//   }
+// });
 
-//#endregion
+// //#endregion
 
-const textureCube = new THREE.CubeTextureLoader().load(park);
+// const textureCube = new THREE.CubeTextureLoader().load(park);
 
-const textureCubeOutside = new THREE.CubeTextureLoader().load(urls);
-const textureCubecloud = new THREE.CubeTextureLoader().load(cloud);
-//#region Plane:
-// scene.background = 0xE2DFD2;
-scene.background = textureCube;
-// scene.environment = textureCube;
-// scene.backgroundBlurriness = 0.2;
-const planePiece = new THREE.PlaneGeometry(5, 5, 5, 5);
-// scene.castShadow = true;
-const steelColor = 0x919293;
-const aluMiniumColr = 0xd3d3d3;
-const upvcColor = 0xffffff;
+// const textureCubeOutside = new THREE.CubeTextureLoader().load(urls);
+// const textureCubecloud = new THREE.CubeTextureLoader().load(cloud);
+// //#region Plane:
+// // scene.background = 0xE2DFD2;
+// // scene.background = textureCube;
+// // scene.environment = textureCube;
+// // scene.backgroundBlurriness = 0.2;
+// const planePiece = new THREE.PlaneGeometry(5, 5, 5, 5);
+// // scene.castShadow = true;
+// const steelColor = 0x919293;
+// const aluMiniumColr = 0xd3d3d3;
+// const upvcColor = 0xffffff;
 
-let color = upvcColor;
-window.addEventListener("keyup", (event) => {
-  if (event.key === "s") {
-    color = steelColor;
-    addModel(color, true);
-  } else if (event.key === "u") {
-    color = 0xffffff;
-    addModel(color, false);
-  } else if (event.key === "a") {
-    //#C2C3C4
-    color = 0xc2c3c4;
-    addModel(color, true);
-  }
-});
+// let color = upvcColor;
+// window.addEventListener("keyup", (event) => {
+//   if (event.key === "s") {
+//     color = steelColor;
+//     addModel(color, true);
+//   } else if (event.key === "u") {
+//     color = 0xffffff;
+//     addModel(color, false);
+//   } else if (event.key === "a") {
+//     //#C2C3C4
+//     color = 0xc2c3c4;
+//     addModel(color, true);
+//   }
+// });
 // window.dispatchEvent('onkeyup);
 
-camera.position.z = 2;
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
+// camera.position.z = 2;
+// const controls = new OrbitControls(camera, renderer.domElement);
+// controls.enableDamping = true;
+// controls.enableZoom = false;
 
 //#region Lights
 
-const ambientlight = new THREE.AmbientLight(0xffffff, 1);
-scene.add(ambientlight);
+// const ambientlight = new THREE.AmbientLight(0xffffff, 1);
+// scene.add(ambientlight);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-directionalLight.position.set(40, 40, 200);
-directionalLight.lookAt(0, 0, 0);
-directionalLight.castShadow = true;
-scene.add(directionalLight);
+// const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+// directionalLight.position.set(40, 40, 200);
+// directionalLight.lookAt(0, 0, 0);
+// directionalLight.castShadow = true;
+// scene.add(directionalLight);
 
-const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.5);
-directionalLight1.position.set(-40, 40, 200);
-directionalLight1.lookAt(0, 0, 0);
-directionalLight1.castShadow = true;
-scene.add(directionalLight1);
+// const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.5);
+// directionalLight1.position.set(-40, 40, 200);
+// directionalLight1.lookAt(0, 0, 0);
+// directionalLight1.castShadow = true;
+// scene.add(directionalLight1);
 
-const directionalLight2 = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight2.position.set(40, 40, -200);
-directionalLight2.lookAt(0, 0, 0);
-// directionalLight2.castShadow = true;
-scene.add(directionalLight2);
+// const directionalLight2 = new THREE.DirectionalLight(0xffffff, 1);
+// directionalLight2.position.set(40, 40, -200);
+// directionalLight2.lookAt(0, 0, 0);
+// // directionalLight2.castShadow = true;
+// scene.add(directionalLight2);
 
-const pointLight = new THREE.PointLight(0xffffff, 1);
-pointLight.position.set(0, 0, 100);
-pointLight.castShadow = true;
-scene.add(pointLight);
-addPointLightHelper(pointLight, scene);
+// const pointLight = new THREE.PointLight(0xffffff, 1);
+// pointLight.position.set(0, 0, 100);
+// pointLight.castShadow = true;
+// scene.add(pointLight);
+// addPointLightHelper(pointLight, scene);
 
-const pointLight2 = new THREE.PointLight(0xffffff, 1);
-pointLight2.position.set(-100, 50, 50);
-pointLight2.castShadow = true;
-scene.add(pointLight2);
+// const pointLight2 = new THREE.PointLight(0xffffff, 1);
+// pointLight2.position.set(-100, 50, 50);
+// pointLight2.castShadow = true;
+// scene.add(pointLight2);
 
-const cameraPointLinght = new THREE.PointLight(0xffffff, 0.01);
-camera.add(cameraPointLinght);
+// const cameraPointLinght = new THREE.PointLight(0xffffff, 0.01);
+// camera.add(cameraPointLinght);
+
+// function addPointLightHelper(light, scene) {
+//   const lightHelper = new THREE.PointLightHelper(light, 10);
+//   scene.add(lightHelper);
+// }
 //#endregion
 
-function animate() {
-  requestAnimationFrame(animate);
-  renderer.render(scene, camera);
-  controls.update();
-  renderer.clearDepth();
-}
+// function animate() {
+//   requestAnimationFrame(animate);
+//   renderer.render(scene, camera);
+//   controls.update();
+//   renderer.clearDepth();
+// }
 
-function addModel(color, isForSteel) {
-  const loader = new GLTFLoader();
-  loader.load(
-    "/gltfModel/scene5.glb",
-    function (gltf) {
-      scene.add(gltf.scene);
-      console.log(gltf);
-      gltf.scene.children.forEach((child) => {
-        if (child instanceof THREE.Mesh) {
-          child.scale.set(0.001, 0.001, 0.001);
-          child.position.set(-5, -5, 0);
-          for (const meshChild of child.children) {
-            if (meshChild.name === "gridHelper") {
-              meshChild.parent.remove(meshChild);
-            } else if (meshChild.name.startsWith("GlassMesh")) {
-              textureCube.magFilter = 2;
-              // textureCube.mapping = THREE.CubeReflectionMapping;
-              textureCube.mapping = THREE.MirroredRepeatWrapping;
-              // const newMat = new THREE.MeshPhongMaterial({
-              //   color: 0xadd8e6,
-              //   // shininess: 1,
-              //   specular: 0xffffff,
-              //   transparent: true,
-              //   opacity: 0.7,
-              //   envMap: textureCube,
-              //   envMapIntensity: 1,
-              //   // reflectivity: 1,
-              //   refractionRatio: 1,
-              //   side: THREE.DoubleSide,
-              //   flatShading: true,
-              // });
 
-              const newMat = new THREE.MeshPhongMaterial({
-                color: 0xadd8e6,
-                shininess: 1,
-                specular: 0xffffff,
-                transparent: true,
-                opacity: 0.5,
-                envMap: textureCube,
-                envMapIntensity: 1,
-                reflectivity: 0.7,
-                refractionRatio: 0.1,
-                combine: THREE.MultiplyOperation,
-              });
-              meshChild.material = newMat;
-              for (let j = meshChild.children.length - 1; j >= 0; j--) {
-                const child = meshChild.children[j];
-                if (
-                  child.name.startsWith("boundaryLine") ||
-                  child.name.startsWith("GlassIdLabel") ||
-                  child.name.startsWith("glassSymbol")
-                ) {
-                  meshChild.remove(child);
-                  child.dispatchEvent({ type: "delete" });
-                }
-              }
-            }
-            if (meshChild.name.startsWith("profile")) {
-              // debugger;
-              for (let j = meshChild.children.length - 1; j >= 0; j--) {
-                const child = meshChild.children[j];
-                if (child.name.startsWith("boundaryLine")) {
-                  meshChild.remove(child);
-                  child.dispatchEvent({ type: "delete" });
-                }
-              }
-              let newMat;
-              if (!isForSteel) {
-                ambientlight.intensity = 1.5;
-                newMat = new THREE.MeshPhysicalMaterial({
-                  color: 0xffffff,
-                  emissive: 0xffffff,
-                  emissiveIntensity: 0.1,
-                  roughness: 1,
-                  metalness: 0.001,
-                  clearcoat: 0.5,
-                });
-              } else {
-                ambientlight.intensity = 1.5;
-                newMat = new THREE.MeshStandardMaterial({
-                  color: color,
-                  specularColor: 0xffffff,
-                  // specularIntensity: 1,
-                  roughness: 0.34,
-                  metalness: 0.6,
-                  envMap: textureCube,
-                  envMapIntensity: 0.1,
-                  // polygonOffset: true,
-                  // polygonOffsetFactor: 0.5,
-                  // polygonOffsetUnits: 1
-                });
-                newMat.needsUpdate = true;
-              }
-              const text = new THREE.TextureLoader().load("wood4.jpg");
-              // text.wrapS = THREE.MirroredRepeatWrapping
-              // text.wrapT = THREE.MirroredRepeatWrapping
-              // text.repeat.set(0.001, 0.001);
-              // newMat.map = text;
-              meshChild.castShadow = true;
-              // meshChild.receiveShadow = true;
-              meshChild.material = newMat;
-              meshChild.material.needsUpdate = true;
-            }
-          }
-        }
-      });
-    },
-    undefined,
-    function (error) {
-      console.error(error);
-    }
-  );
-}
 
-function addPointLightHelper(light, scene) {
-  const lightHelper = new THREE.PointLightHelper(light, 10);
-  scene.add(lightHelper);
-}
+// function addModel(color, isForSteel) {
+//   const loader = new GLTFLoader();
+//   loader.load(
+//     "/gltfModel/scene5.glb",
+//     function (gltf) {
+//       scene.add(gltf.scene);
+//       console.log(gltf);
+//       gltf.scene.children.forEach((child) => {
+//         if (child instanceof THREE.Mesh) {
+//           child.scale.set(0.001, 0.001, 0.001);
+//           child.position.set(-5, -5, 0);
+//           for (const meshChild of child.children) {
+//             if (meshChild.name === "gridHelper") {
+//               meshChild.parent.remove(meshChild);
+//             } else if (meshChild.name.startsWith("GlassMesh")) {
+//               textureCube.magFilter = 2;
+//               // textureCube.mapping = THREE.CubeReflectionMapping;
+//               textureCube.mapping = THREE.MirroredRepeatWrapping;
+//               // const newMat = new THREE.MeshPhongMaterial({
+//               //   color: 0xadd8e6,
+//               //   // shininess: 1,
+//               //   specular: 0xffffff,
+//               //   transparent: true,
+//               //   opacity: 0.7,
+//               //   envMap: textureCube,
+//               //   envMapIntensity: 1,
+//               //   // reflectivity: 1,
+//               //   refractionRatio: 1,
+//               //   side: THREE.DoubleSide,
+//               //   flatShading: true,
+//               // });
+
+//               const newMat = new THREE.MeshPhongMaterial({
+//                 color: 0xadd8e6,
+//                 shininess: 1,
+//                 specular: 0xffffff,
+//                 transparent: true,
+//                 opacity: 0.5,
+//                 envMap: textureCube,
+//                 envMapIntensity: 1,
+//                 reflectivity: 0.7,
+//                 refractionRatio: 0.1,
+//                 combine: THREE.MultiplyOperation,
+//               });
+//               meshChild.material = newMat;
+//               for (let j = meshChild.children.length - 1; j >= 0; j--) {
+//                 const child = meshChild.children[j];
+//                 if (
+//                   child.name.startsWith("boundaryLine") ||
+//                   child.name.startsWith("GlassIdLabel") ||
+//                   child.name.startsWith("glassSymbol")
+//                 ) {
+//                   meshChild.remove(child);
+//                   child.dispatchEvent({ type: "delete" });
+//                 }
+//               }
+//             }
+//             if (meshChild.name.startsWith("profile")) {
+//               // debugger;
+//               for (let j = meshChild.children.length - 1; j >= 0; j--) {
+//                 const child = meshChild.children[j];
+//                 if (child.name.startsWith("boundaryLine")) {
+//                   meshChild.remove(child);
+//                   child.dispatchEvent({ type: "delete" });
+//                 }
+//               }
+//               let newMat;
+//               if (!isForSteel) {
+//                 ambientlight.intensity = 1.5;
+//                 newMat = new THREE.MeshPhysicalMaterial({
+//                   color: 0xffffff,
+//                   emissive: 0xffffff,
+//                   emissiveIntensity: 0.1,
+//                   roughness: 1,
+//                   metalness: 0.001,
+//                   clearcoat: 0.5,
+//                 });
+//               } else {
+//                 ambientlight.intensity = 1.5;
+//                 newMat = new THREE.MeshStandardMaterial({
+//                   color: color,
+//                   specularColor: 0xffffff,
+//                   // specularIntensity: 1,
+//                   roughness: 0.34,
+//                   metalness: 0.6,
+//                   envMap: textureCube,
+//                   envMapIntensity: 0.1,
+//                   // polygonOffset: true,
+//                   // polygonOffsetFactor: 0.5,
+//                   // polygonOffsetUnits: 1
+//                 });
+//                 newMat.needsUpdate = true;
+//               }
+//               const text = new THREE.TextureLoader().load("wood4.jpg");
+//               // text.wrapS = THREE.MirroredRepeatWrapping
+//               // text.wrapT = THREE.MirroredRepeatWrapping
+//               // text.repeat.set(0.001, 0.001);
+//               // newMat.map = text;
+//               meshChild.castShadow = true;
+//               // meshChild.receiveShadow = true;
+//               meshChild.material = newMat;
+//               meshChild.material.needsUpdate = true;
+//             }
+//           }
+//         }
+//       });
+//     },
+//     undefined,
+//     function (error) {
+//       console.error(error);
+//     }
+//   );
+// }
 
 //#region Old Codes
-const planeMat = new THREE.MeshPhongMaterial({
-  color: 0xffffff * 1,
-  shininess: 0.6,
-  specular: 0xffffff,
-  // envMap: textureCube,
-  side: THREE.DoubleSide,
-  clipShadows: true,
-});
+// const planeMat = new THREE.MeshPhongMaterial({
+//   color: 0xffffff * 1,
+//   shininess: 0.6,
+//   specular: 0xffffff,
+//   // envMap: textureCube,
+//   side: THREE.DoubleSide,
+//   clipShadows: true,
+// });
 
-const planeMatrial = new THREE.MeshStandardMaterial({
-  color: 0x808080,
-  clipShadows: true,
-  // envMap: textureCube,
-  roughness: 1,
-  envMapIntensity: 0.2,
-  side: THREE.DoubleSide,
-});
+// const planeMatrial = new THREE.MeshStandardMaterial({
+//   color: 0x808080,
+//   clipShadows: true,
+//   // envMap: textureCube,
+//   roughness: 1,
+//   envMapIntensity: 0.2,
+//   side: THREE.DoubleSide,
+// });
 
-// planeMatrial.shadowSide = THREE.DoubleSide;
-const planeMesh = new THREE.Mesh(planePiece, planeMat);
-planeMesh.rotateX(-Math.PI / 2);
-planeMesh.position.y -= 0.75;
-planeMesh.receiveShadow = true;
-scene.add(planeMesh);
+// // planeMatrial.shadowSide = THREE.DoubleSide;
+// const planeMesh = new THREE.Mesh(planePiece, planeMat);
+// planeMesh.rotateX(-Math.PI / 2);
+// planeMesh.position.y -= 0.75;
+// planeMesh.receiveShadow = true;
+// scene.add(planeMesh);
 
 // // Source: https://discourse.threejs.org/t/extrude-geometry-apply-texture-to-all-faces-of-the-mesh/48246
 // static applyUVsToExtrudeBufferGeometry(geometry: THREE.ExtrudeGeometry) {
@@ -598,5 +601,75 @@ scene.add(planeMesh);
 // }
 
 //#endregion
+//#endregion
+//#endregion
 
-animate();
+// neonCursor({
+//   el: document.getElementById('app'),
+//   shaderPoints: 16,
+//   curvePoints: 80,
+//   curveLerp: 0.5,
+//   radius1: 5,
+//   radius2: 30,
+//   velocityTreshold: 10,
+//   sleepRadiusX: 100,
+//   sleepRadiusY: 100,
+//   sleepTimeCoefX: 0.0025,
+//   sleepTimeCoefY: 0.0025
+// })
+const pc = particlesCursor({
+  el: document.getElementById('app'),
+  gpgpuSize: 256,
+  colors: [0x00ff00, 0x0000ff],
+  color: 0xff0000,
+  coordScale: 1.5,
+  noiseIntensity: 0.0035,
+  noiseTimeCoef: 0.001,
+  pointSize: 5,
+  pointDecay: 0.001,
+  sleepRadiusX: 500,
+  sleepRadiusY: 1200,
+  sleepTimeCoefX: 0.001,
+  sleepTimeCoefY: 0.001,
+})
+
+document.body.addEventListener('click', () => {
+  pc.uniforms.uColor.value.set(Math.random() * 0xffffff)
+  pc.uniforms.uCoordScale.value = 0.01 + Math.random() * 2
+  pc.uniforms.uNoiseIntensity.value = 0.001 + Math.random() * 0.001
+  pc.uniforms.uPointSize.value = 1 + Math.random() * 10
+})
+
+VanillaTilt.init(document.querySelector(".card"), {
+  max: 25,
+  speed: 400
+});
+
+//It also supports NodeList
+VanillaTilt.init(document.querySelectorAll(".card"));
+
+// fishesBackground({
+//   el: document.getElementById('app'),
+//   gpgpuSize: 96,
+//   background: 0x031F48,
+//   fogDensity: 0.025,
+//   texture: '/fishes.png',
+//   textureCount: 8,
+//   material: 'phong',
+//   materialParams: {
+//     transparent: true,
+//     alphaTest: 0.5
+//   },
+//   fishScale: [1, 1, 1],
+//   fishWidthSegments: 8,
+//   fishSpeed: 1.5,
+//   noiseCoordScale: 0.01,
+//   noiseTimeCoef: 0.0005,
+//   noiseIntensity: 0.0005,
+//   attractionRadius1: 50,
+//   attractionRadius2: 150,
+//   maxVelocity: 0.1
+// })
+
+
+// animate();

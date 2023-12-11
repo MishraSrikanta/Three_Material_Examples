@@ -13,6 +13,8 @@
   "dependencies": {
     "@types/webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-types-0.7.9.tgz",
     "three": "^0.155.0",
+    "threejs-toys": "^0.0.8",
+    "vanilla-tilt": "^1.8.1",
     "webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-0.7.9.tgz"
   }
 }
