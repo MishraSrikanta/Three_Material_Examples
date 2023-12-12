@@ -6,6 +6,10 @@
   z-index: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 
 body,
 html {
@@ -15,16 +19,107 @@ html {
 }
 
 #app {
+  position: absolute;
+  /* top: -207px; */
   height: 300%;
+  width: 100%;
 }
 
-#app h1 {
+.NavBar {
+  height: 7%;
+  width: 100%;
+  display: block;
+  position: fixed;
+  background-color: rgb(29, 29, 30);
+  opacity: 0.8;
+  z-index: 44;
+}
+
+.Logo {
+  display: inline;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  left: 15%;
+  top: 3px;
+  border: 2px solid rgb(38, 7, 7)
+}
+
+.HeadingName{
+  position: relative;
+  display: inline;
+  font-size: 30px;
+  color: antiquewhite;
+  left: 15%;
+  bottom: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1px;
+}
+
+.nav{
+  position: absolute;
+  display: inline;
+  width: 60%;
+  height: 60px;
+  right: 0;
+  top: 3px;
+  /* background-color: antiquewhite; */
+}
+
+.navbarList{
+  position: relative;
+  /* display: inline-block; */
+  width: 100%;
+  height: 60px;
+  bottom: 15px;
+  left: 300px;
+}
+
+.list1{
+  color: rgb(208, 208, 203);
+  position: relative;
+  top: 24%;
+  display: inline;
+  font-size: 22px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1px;
+  cursor: pointer;
+  /* background-color: aliceblue; */
+}
+
+.list2{
+  color: rgb(208, 208, 203);
+  position: relative;
+  top: 24%;
+  display: inline;
+  font-size: 22px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1px;
+  cursor: pointer;
+  left: 20px;
+  /* background-color: aliceblue; */
+}
+
+.list1:hover{
+ color: rgb(250, 250, 250);
+ font-size:23px;
+ transform: translate(10px);
+ transform: rotate(20deg);
+}
+.list2:hover{
+ color: rgb(250, 250, 250);
+ font-size:23px;
+ transform: translate(10px);
+ transform: rotate(20deg);
+}
+
+.introText {
   --fontSize: 60px;
   --lineHeight: 80px;
   width: auto;
   height: calc(2 * var(--lineHeight));
   line-height: var(--lineHeight);
-  margin: calc(30vh - var(--lineHeight)) auto 0;
+  margin: calc(45vh - var(--lineHeight)) auto 0;
   font-size: var(--fontSize);
   touch-action: pan-up;
   color: #ffffff;
@@ -57,18 +152,14 @@ html {
 
 
 .Class1 {
-  /* position: relative; */
-  top: -150px;
+  position: relative;
+  display: inline-block;
+  /* top: 70px; */
+  top: 0px;
+  height: 33%;
+  width: 100%;
   color: aliceblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0em;
-  /* animation: mymove 4s; */
-  /* animation: animation1 4s; */
-  /* animation-iteration-count: infinite; */
-  /* animation-fill-mode: forwards; */
-  /* top: 2%; */
+  margin: auto;
 }
 
 .Class2 {
@@ -82,16 +173,28 @@ html {
 
 }
 
+.ProjectsText{
+  /* background-color: antiquewhite; */
+  color: beige;
+  position: relative;
+  font-size: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  padding: 1px;
+  /* margin: auto; */
+  left: 30px;
+}
+
 .cards {
-  margin-top: 180px;
+  position: relative;
+  /* margin-top: 180px; */
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
 .card {
-  width: 16%;
+  width: 300px;
   height: 350px;
   padding: 5pxpx;
   right: 20px;
@@ -102,19 +205,8 @@ html {
   box-shadow: 10px 10px wheat;
 }
 
-@media (max-width: 800px) {
-  .cards {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
 
-  .card {
-    width: 75%;
-  }
-}
-
-img {
+.CardImage {
   /* display: block; */
   display: flex;
   width: 94%;
@@ -126,7 +218,10 @@ img {
   object-fit: cover;
   border-radius: 20px;
 }
-
+.CardImage:hover{
+  transform: scale(1.5);
+  z-index: 55;
+}
 .Project-heading {
   position: relative;
   display: inline;
@@ -153,7 +248,7 @@ img {
   text-overflow: ellipsis;
 }
 
-.gitHub{
+.gitHub {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -162,17 +257,20 @@ img {
   opacity: 0.75;
   width: 50px;
   height: 50px;
-  cursor:pointer;
+  cursor: pointer;
   background-color: rgb(1, 1, 1);
 }
 
-.gitImage{
+.gitImage {
   position: relative;
   width: 40px;
   height: 40px;
-  margin: auto;
-  object-fit: cover;
-  top: -2px;
+  top: 5px;
+  left: 5px;
+  /* margin: auto; */
+  /* object-fit: cover; */
+  
+  /* top: -2px; */
 }
 
 .gitHub:hover {
@@ -245,4 +343,10 @@ img {
   font-weight: 900;
   text-transform: capitalize;
   text-decoration: solid;
+}
+
+.aboutSection{
+  position: relative;
+  height: 600px;
+  display: block;
 }
